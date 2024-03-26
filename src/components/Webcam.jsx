@@ -35,10 +35,12 @@ function Webcam(props) {
     }
   };
 
-  const toggleCamera = () => {
-    setIsFrontCamera((prev) => !prev); 
-    getVideo(); 
-  };
+  const toggleCamera = (event) => {
+  event.preventDefault();
+  setIsFrontCamera((prev) => !prev); 
+  getVideo(); 
+};
+
 
   const loadModel = async () => {
     try {
