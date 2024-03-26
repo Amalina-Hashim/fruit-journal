@@ -197,6 +197,7 @@ video {
   position: relative;
   width: 100%;
   height: auto;
+  margin-bottom: 10px;
 }
 
 .snap {
@@ -223,6 +224,11 @@ canvas {
 
 .captured-photo {
 margin-top: 10px;
+margin-bottom: 10px;
+}
+
+img {
+  margin-bottom: 10px;
 }
 
 .delete {
@@ -371,6 +377,9 @@ font-size: 30px;
   cursor: pointer;
   margin-left: 10px;
 }
+
+
+
 
 
 

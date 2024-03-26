@@ -4,7 +4,7 @@ import Note from "./Note";
 import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
-import { createNote, getAllNotes, deleteNoteById } from "../utils/airtable";
+import { createNote, getAllNotes } from "../utils/airtable";
 
 
 function App() {

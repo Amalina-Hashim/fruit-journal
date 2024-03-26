@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Webcam from "./Webcam";
 import LocationDisplay from "./Location";
+import Webcamcomponent from "./Webcam";
 
 function CreateArea(props) {
   const [note, setNote] = useState({ title: "", content: [] });
@@ -129,7 +129,7 @@ function CreateArea(props) {
             ))}
           </ul>
         </div>
-        <Webcam
+        <Webcamcomponent
           onCapture={(imageURL, cloudUrl) => {
             setCapturedImage(imageURL);
             setCloudinaryUrl(cloudUrl);
