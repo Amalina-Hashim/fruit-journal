@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
+import Header from "./Header"
 
 const YoutubeFruitsForKids = () => {
   const videoId = 'KRqg3RJFWPo';
@@ -10,6 +11,8 @@ const YoutubeFruitsForKids = () => {
   
 
   return (
+    <>
+    <Header />
     <div className="youtube-fruits-container">
       <h3>Learning About Fruits - Fun Video for Kids!</h3>
       <div className="video-wrapper">
@@ -27,6 +30,7 @@ const YoutubeFruitsForKids = () => {
         </Link>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 
 function Header() {
+  const navigate = useNavigate();
+
+  
+  const goToHome = () => {
+    navigate('/');
+  };
   return (
     <header>
-      <h1>Kyra's Fruit Journal</h1>
+      <h1 onClick={goToHome}>Kyra's Fruit Journal</h1>
       <nav>
         <ul className="nav">
           <li>
@@ -20,3 +26,4 @@ function Header() {
 }
 
 export default Header;
+
