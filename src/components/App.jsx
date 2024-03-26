@@ -4,7 +4,7 @@ import Note from "./Note";
 import Modal from "./Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
-import { createNote, getAllNotes, deleteNote } from "../utils/airtable";
+import { createNote, getAllNotes, deleteNoteById } from "../utils/airtable";
 
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
   }
 
   function deleteNote(id) {
-    setNotes((prevNotes) => prevNotes.filter((noteItem, index) => index !== id));
+    setNotes((prevNotes) => prevNotes.filter((noteItem) => noteItem.id !== id));
   }
 
   function toggleModal() {
@@ -83,7 +83,7 @@ function App() {
       {notes.map((noteItem, index) => (
         <Note
           key={index}
-          id={index}
+          id={noteItem.id}
           title={noteItem.fields.title}
           labels={noteItem.fields.labels}
           content={noteItem.fields.content}

@@ -1,11 +1,17 @@
 import React from "react";
+import { deleteNoteById } from "../utils/airtable";
 
 function Note(props) {
 
 
   
-  function handleClick() {
-    props.onDelete(props.id);
+  async function handleClick() {
+    try {
+      await deleteNoteById(props.id); 
+      props.onDelete(props.id); 
+    } catch (error) {
+      console.error("Error deleting note:", error);
+    }
   }
 
   return (
