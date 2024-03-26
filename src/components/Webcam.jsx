@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as mobilenet from "@tensorflow-models/mobilenet";
 import { uploadImageToCloudinary } from "../utils/cloudinaryUtils"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCameraRotate } from '@fortawesome/free-solid-svg-icons';
 
 function Webcam(props) {
   const videoRef = useRef(null);
@@ -12,6 +14,7 @@ function Webcam(props) {
   const [capturedImage, setCapturedImage] = useState(null);
   const [modelLoaded, setModelLoaded] = useState(false);
   const [cloudinaryUrl, setCloudinaryUrl] = useState(""); 
+  const [isFrontCamera, setIsFrontCamera] = useState(true);
 
   useEffect(() => {
   }, [cloudinaryUrl]);
@@ -20,7 +23,7 @@ function Webcam(props) {
   const getVideo = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { width: 1920, height: 1080 },
+        video: { facingMode: isFrontCamera ? "user" : "environment" },
       });
       let video = videoRef.current;
       if (video) {
@@ -30,6 +33,11 @@ function Webcam(props) {
     } catch (err) {
       console.error("Error accessing webcam:", err);
     }
+  };
+
+  const toggleCamera = () => {
+    setIsFrontCamera((prev) => !prev); 
+    getVideo(); 
   };
 
   const loadModel = async () => {
@@ -170,6 +178,9 @@ function Webcam(props) {
         <video ref={videoRef} />{" "}
         <button id="photoButton" className="snap" onClick={takePhoto}>
           Snap
+        </button>
+        <button className="flipCamera" onClick={toggleCamera}>
+        <FontAwesomeIcon icon={faCameraRotate} style={{color: "#feffff",}} />
         </button>
       </div>
       <div className={"result " + (hasPhoto ? "hasPhoto" : "")}>

@@ -357,7 +357,20 @@ font-size: 30px;
   align-items: center;
 }
 
-
+.flipCamera {
+  z-index: 2;
+  position: relative;
+  border: none;
+  outline: none;
+  background: linear-gradient(to top right, #cc00ff 0%, #cc3399 100%);
+  font-size: 24px;
+  font-weight: bold;
+  height: 40px;
+  width: 80px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-left: 10px;
+}
 
 
 
