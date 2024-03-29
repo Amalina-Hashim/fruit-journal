@@ -11,12 +11,9 @@ function App() {
   const [notes, setNotes] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [resetModal, setResetModal] = useState(false); 
-  const [locationName, setLocationName] = useState("");
-  const [cloudinaryUrl, setCloudinaryUrl] = useState("");
+  const [, setLocationName] = useState("");
+  const [, setCloudinaryUrl] = useState("");
 
-  const updateCloudinaryUrl = (url) => {
-    setCloudinaryUrl(url);
-  };
 
   useEffect(() => {
     async function fetchNotes() {

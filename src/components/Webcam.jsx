@@ -8,13 +8,12 @@ import Webcam from "react-webcam";
 
 function Webcamcomponent(props) {
   const webcamRef = useRef(null);
-  const photoRef = useRef(null);
   const [model, setModel] = useState(null);
   const [hasPhoto, setHasPhoto] = useState(false);
   const [imageLabels, setImageLabels] = useState([]);
   const [capturedImage, setCapturedImage] = useState(null);
   const [modelLoaded, setModelLoaded] = useState(false);
-  const [cloudinaryUrl, setCloudinaryUrl] = useState("");
+  const [, setCloudinaryUrl] = useState("");
   const [isFrontCamera, setIsFrontCamera] = useState(true);
 
   useEffect(() => {
